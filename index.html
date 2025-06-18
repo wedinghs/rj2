@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kover Undangan Pernikahan</title>
+<link rel="stylesheet" href="stylei.css">
+<link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="cover">
+    <div class="content">
+        <div class="judul">The Wedding Of</div>
+      <!-- FOTO KEDUA MEMPELAI -->
+      <img src="img/berdua.jpg" alt="Foto Mempelai" class="foto-mempelai" />
+
+      
+      <div class="nama-mempelai">Rizki & Jennie</div>
+
+      <div class="kepada">Kepada Yth.</div>
+      <div class="nama-tamu" id="nama-tamu">Bapak/Ibu/Saudara/i</div>
+
+      <br />
+      <a href="main.html" class="btn-buka">Buka Undangan</a>
+
+      <div class="catatan">
+        Mohon maaf apabila ada kesalahan penulisan nama/gelar
+      </div>
+    </div>
+  </div>
+<!-- link nama -->
+  <script>
+    // Ambil parameter ?to= dari URL
+    // contoh ?to=Bapak%20Muhammad%20Aldos%20%26%20Ibu%20Rafaela%20Hyper %20 bikin spasi %26 bikin tanda &
+    const params = new URLSearchParams(window.location.search);
+    const namaTamu = params.get("to");
+
+    if (namaTamu) {
+      document.getElementById("nama-tamu").textContent = decodeURIComponent(namaTamu);
+    }
+  </script>
+<!-- link nama -->
+<!-- salju -->
+<script>
+  function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+
+    const span = document.createElement("span");
+    span.textContent = "❄";
+
+    // Random gaya
+    snowflake.style.left = Math.random() * window.innerWidth + "px";
+    snowflake.style.animationDuration = 5 + Math.random() * 5 + "s";
+    span.style.fontSize = Math.random() * 10 + 10 + "px";
+    span.style.opacity = Math.random();
+    span.style.animationDuration = 4 + Math.random() * 4 + "s"; // putaran
+
+    snowflake.appendChild(span);
+    document.body.appendChild(snowflake);
+
+    // Hapus salju setelah selesai
+    setTimeout(() => snowflake.remove(), 10000);
+  }
+
+  setInterval(createSnowflake, 300);
+</script>
+<!-- salju -->
+
+</body>
+</html>

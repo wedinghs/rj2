@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Carattere&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Firebase App -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<!-- Firebase Database -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+<audio id="bg-music" src="audio/lagu.mp3" autoplay loop></audio>
+<button id="music-toggle" class="music-btn">🔊</button>
+
+<nav class="navbar">
+  <button onclick="scrollToSection('utama')"><i data-lucide="home"></i><span>Home</span></button>
+  <button onclick="scrollToSection('mempelai')"><i data-lucide="heart"></i><span>Mempelai</span></button>
+  <button onclick="scrollToSection('waktu')"><i data-lucide="calendar-days"></i><span>Acara</span></button>
+  <button onclick="scrollToSection('galeri')"><i data-lucide="image"></i><span>Galeri</span></button>
+  <button onclick="scrollToSection('ucapan')"><i data-lucide="message-circle"></i><span>Ucapan</span></button>
+</nav>
+
+<div class="snowflakes" aria-hidden="true">
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❆</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❆</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❆</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❆</div>
+</div>
+
+<section id="utama" class="utamabg">
+  <div class="container utamacont">
+    <img src="img/tema/Gunungan-Wood-254x300-1.png" alt="Ornamen" style="width:180px; margin-bottom:30px;" class="ornament reveal">
+    <div class="names reveal">The Wedding Of</div>
+
+    <img src="img/berdua.jpg" alt="Foto Mempelai" class="couple-photo reveal">
+
+    <div class="names reveal">Rizki & Jennie</div>
+    <div class="date reveal">Sabtu, 06 Juni 2026</div>
+    <div class="save-the-date reveal">SAVE THE DATE</div>
+
+    <div class="countdown reveal" id="countdown">
+      <div><span id="days">--</span><div class="label">Hari</div></div>
+      <div><span id="hours">--</span><div class="label">Jam</div></div>
+      <div><span id="minutes">--</span><div class="label">Menit</div></div>
+      <div><span id="seconds">--</span><div class="label">Detik</div></div>
+    </div>
+    </div>
+</section>
+<div class="ornament-wrapper bottom">
+  <img src="img/tema/ornamen2.png" alt="ornamen bawah" class="ornament">
+</div>
+
+  <section id="mempelai" style="background-color:#1e1e1e; color:#fff; text-align:center;">
+  <div class="container">
+  <img src="img/tema/bismilah.png" class="reveal" alt="Bismillah" style="width:220px; margin-bottom:20px;">
+
+  <h3 class="reveal">Assalamu'alaikum Wr. Wb.</h3>
+  <p class="reveal" style="max-width:600px; margin: 10px auto 30px; line-height:1.6;">
+    Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara(i) serta kerabat sekalian untuk menghadiri acara pernikahan kami:
+  </p>
+
+  <div style="margin-bottom:40px;">
+    <img src="img/rizki.jpg" alt="Mempelai Pria" style="width:140px; height:140px; border-radius:50%; border:3px solid #fff; object-fit:cover; box-shadow: 0 0 10px rgba(255,255,255,0.2);" class="reveal">
+    <h3 class="reveal names" style="margin:10px 0 5px;">Muhammad Rizki</h3>
+    <p class="reveal">Putra dari Bapak xxxxx & Ibu xxxxxxx</p>
+  </div>
+
+  <h1 style="font-size:4rem; color:#ffffff;" class="names2">&</h1>
+
+  <div style="margin-top:40px;">
+    <img src="img/jeni.jpg" class="reveal" alt="Mempelai Wanita" style="width:140px; height:140px; border-radius:50%; border:3px solid #fff; object-fit:cover; box-shadow: 0 0 10px rgba(255,255,255,0.2);">
+    <h3 class="reveal names" style="margin:10px 0 5px;">Jennie Ruby Jane</h3>
+    <p class="reveal">Putri dari Bapak xxxxxx & Ibu xxxxxxxx</p>
+  </div>
+    </div>
+</section>
+<div class="ornament-wrapper bottom">
+  <img src="img/tema/ornamen2.png" alt="ornamen bawah" class="ornament">
+</div>
+
+
+<section class="ayat-section" id="ayat" style="text-align:center;">
+    <div class="ayat-content">
+  <img src="img/tema/bismilah.png" class="reveal" alt="Bismillah" style="width:220px; margin-bottom:30px;">
+
+  <h3  class="reveal" style="font-style: italic; margin-bottom: 20px;">QS. Ar-Rum : 21</h3>
+
+  <p  class="reveal" style="font-size: 1.3rem; font-weight: 300; line-height: 2; margin-bottom: 30px;">
+    وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا 
+    وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+  </p>
+
+  <p  class="reveal" style="font-size: 1rem; color: #ccc; max-width: 600px; margin: 0 auto;">
+    “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri,
+    agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. 
+    Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.”
+  </p>
+  </div>
+</section>
+
+
+<section id="waktu" style="background:#121212; color:white; padding:80px 20px; text-align:center;">
+      <div class="reveal">
+<img src="img/tema/timer.png" class="reveal" alt="Bismillah" style="width:100px">
+  <h2 class="reveal names2">Hitung Mundur Hari yang Dinanti</h2>
+
+    <div class="countdown reveal" id="countdown2">
+      <div><span id="days2">--</span><div class="label">Hari</div></div>
+      <div><span id="hours2">--</span><div class="label">Jam</div></div>
+      <div><span id="minutes2">--</span><div class="label">Menit</div></div>
+      <div><span id="seconds2">--</span><div class="label">Detik</div></div>
+    </div>
+
+<section id="acara" class="container">
+  <h2 class="section-title">Akad & Resepsi</h2>
+
+  <div class="event-wrapper reveal">
+    <div class="event-box reveal">
+      <h3  class="reveal" >Akad Nikah</h3>
+      <p  class="reveal" ><strong>jum'at, 05 Juni 2026</strong></p>
+      <p  class="reveal" >Pukul 08.00 WIB - Selesai</p>
+      <p  class="reveal" >KUA Seoul, Korea Selatan</p>
+    </div>
+
+    <div class="event-box reveal">
+      <h3  class="reveal" >Resepsi</h3>
+      <p  class="reveal" ><strong>sabtu, 06 Juni 2026</strong></p>
+      <p  class="reveal" >Pukul 08.00 WIB - Selesai</p>
+      <p  class="reveal" >Gedung YG entertaiment, Hapdžong-dong, Mapo-gu, Seoul, Korea Selatan</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Google Maps Embed -->
+<div class="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.2868244797824!2d126.9085948118798!3d37.54830562505589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9900784b814f%3A0xfb9bc08074d8cb2!2sGedung%20YG%20entertaiment!5e0!3m2!1sid!2sid!4v1750137420992!5m2!1sid!2sid"
+    width="100%"
+    height="250"
+    style="border:0; border-radius: 20px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+  <a href="https://maps.app.goo.gl/rfUtNp5xSD8i8UY77" target="_blank"  class="reveal" style="display:inline-block; background:#f9c06b; color:#000; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold;">
+    📍 Lihat Lokasi
+  </a>
+  </div>
+</section>
+
+<section id="galeri" style="background:#1a1a1a; color:white; padding:80px 20px; text-align:center;">
+    <img src="img/tema/galeri.png" class="reveal" alt="Bismillah" style="width:100px">
+  <h2  class="reveal names2">Galeri Momen Bahagia</h2>
+  
+  <div class="galeri-container reveal" style="display:flex; overflow-x:auto; gap:15px; padding-bottom:10px; scroll-snap-type:x mandatory;">
+    <img src="img/gallery/1.jpg" class="galeri-item" alt="Foto 1">
+    <img src="img/gallery/2.jpg" class="galeri-item" alt="Foto 2">
+    <img src="img/gallery/3.jpg" class="galeri-item" alt="Foto 3">
+    <img src="img/gallery/4.jpg" class="galeri-item" alt="Foto 4">
+    <img src="img/gallery/5.jpg" class="galeri-item" alt="Foto 5">
+    <img src="img/gallery/6.jpg" class="galeri-item" alt="Foto 6">
+  </div>
+</section>
+
+<section id="gift" style="background:#1a1a1a; color:#fff; padding:80px 20px; text-align:center;">
+    <img src="img/tema/gift.png" class="reveal" alt="Bismillah" style="width:100px">
+  <h2  class="reveal names2">Amplop Digital</h2>
+  <p  class="reveal" style="margin-bottom:40px;">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. <br class="reveal" >
+    Namun jika memberi adalah bentuk tanda kasih, kami dengan senang hati menerimanya.</p>
+
+  <!-- Box 1: Bank BRI -->
+  <div class="gift-box reveal">
+    <img src="img/tema/BRI-1024x241.png" alt="Logo BRI" class="bank-logo reveal"style="width: 150px;">
+    <p class="bank-name reveal">Bank BRI</p>
+    <p class="account-name reveal">A/N Muhammad rizki</p>
+    <p class="account-number reveal" id="bri-account">447201009242531</p>
+    <button onclick="copyText('bri-account')" class="copy-btn reveal">Salin Nomor</button>
+  </div>
+
+  <!-- Box 2: Bank Mandiri -->
+  <div class="gift-box reveal">
+    <img src="img/tema/mandiri.png" alt="Logo Mandiri" class="bank-logo reveal"style="width: 150px;">
+    <p class="bank-name reveal">Bank Mandiri</p>
+    <p class="account-name reveal">A/N Jennie Ruby Jane</p>
+    <p class="account-number reveal" id="mandiri-account">447201009242531</p>
+    <button onclick="copyText('mandiri-account')" class="copy-btn reveal">Salin Nomor</button>
+  </div>
+
+  <!-- Box 3: Alamat Hadiah -->
+  <div class="gift-box reveal">
+    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Gift" class="bank-logo reveal" style="width: 60px;">
+    <p class="bank-name reveal">Kirim Hadiah</p>
+    <p class="account-name reveal">Gedung YG entertaiment, Hapdžong-dong, Mapo-gu, Seoul, Korea Selatan</p>
+    <button onclick="copyTextRaw('Gedung YG entertaiment, Hapdžong-dong, Mapo-gu, Seoul, Korea Selatan')" class="copy-btn reveal">Salin Alamat</button>
+  </div>
+</section>
+
+<section id="penutup" class="penutupbg">
+  <div class="container penutupcont">
+  <img src="img/tema/thanks.png" style="width:230px" class="reveal">
+  <h2  class="reveal" style="font-size:1.8rem; margin-bottom:20px;">Terima Kasih</h2>
+  <p  class="reveal" style="max-width:600px; margin:0 auto 30px; line-height:1.8; font-size:1.1rem; color:#ccc;">
+    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir
+    dan memberikan doa restu pada hari bahagia kami.
+  </p>
+  <h3  class="reveal names" style="font-size:2.5rem; color:#f9c06b;">Rizki & Jennie</h3>
+  </div>
+</section>
+
+<section id="ucapan" style="background:#1e1e1e; color:#fff; padding:80px 20px; text-align:center;">
+    <div class="container">
+  <img src="img/tema/mail.png" class="reveal logot" alt="Bismillah" style="width:100px">
+  <h2  class="reveal names2">Ucapan Untuk Mempelai</h2>
+  <p  class="reveal" style="color:#ccc; margin-bottom:30px;">Berikan ucapan & doa restu kepada kedua mempelai</p>
+
+    <form id="form-ucapan" class="form-ucapan reveal">
+    <input type="text" id="nama" placeholder="Nama Kamu" required />
+    <textarea id="isi" placeholder="Ucapan & Doa Restu" required></textarea>
+    
+    <select id="status" required>
+      <option value="" disabled selected>Status Kehadiran</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Ragu-ragu">Ragu-ragu</option>
+      <option value="Berhalangan">Berhalangan</option>
+    </select>
+
+    <button type="submit" class="reveal">Kirim</button>
+  </form>
+
+  <div id="daftar-ucapan" class="box-ucapan reveal"></div>
+  </div>
+</section>
+<footer class="footer">
+  <p>Percetakan Seiko 2025</p>
+  <p>Pesan undangan seperti ini lewat WA:</p>
+  <a href="https://wa.me/6281521502923?text=Halo%20saya%20ingin%20pesan%20undangan%20digital" class="wa-button" target="_blank">
+    Hubungi via WhatsApp
+  </a>
+</footer>
+
+
+  <script>
+    const targetDate = new Date("2026-06-06T08:00:00").getTime();
+
+    const countdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    setInterval(countdown, 1000);
+  </script>
+
+  <script>
+  const targetDate2 = new Date("2026-06-06T08:00:00").getTime();
+
+  const countdown2 = () => {
+    const now = new Date().getTime();
+    const distance = targetDate2 - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days2").innerText = days;
+    document.getElementById("hours2").innerText = hours;
+    document.getElementById("minutes2").innerText = minutes;
+    document.getElementById("seconds2").innerText = seconds;
+  }
+
+  setInterval(countdown2, 1000);
+</script>
+
+<!--log komen semetara-->
+<!-- <script> 
+  document.getElementById("formUcapan").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const pesan = document.getElementById("pesan").value;
+    const status = document.getElementById("status").value;
+
+    const div = document.createElement("div");
+    div.style.padding = "15px";
+    div.style.marginBottom = "15px";
+    div.style.background = "#2c2c2c";
+    div.style.borderRadius = "10px";
+    div.innerHTML = `
+      <strong>${nama}</strong> <em style="color:#f9c06b;">[${status}]</em><br>
+      <p style="margin-top:5px;">${pesan}</p>
+    `;
+
+    document.getElementById("listUcapan").prepend(div);
+    this.reset();
+  });
+</script> -->
+
+<script>
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.2 // 20% elemen terlihat → trigger
+  });
+
+  revealElements.forEach(el => {
+    observer.observe(el);
+  });
+</script>
+<script>
+  lucide.createIcons();
+</script>
+<script>
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+<script>
+  const snowflakes = document.querySelectorAll('.snowflake');
+  snowflakes.forEach((flake) => {
+    flake.style.left = Math.random() * 100 + 'vw';
+    flake.style.animationDuration = 5 + Math.random() * 5 + 's';
+    flake.style.fontSize = 10 + Math.random() * 20 + 'px';
+    flake.style.opacity = Math.random();
+  });
+</script>
+<script>
+  const bgMusic = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle');
+
+  let isPlaying = true;
+
+  musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicBtn.textContent = '🔇';
+    } else {
+      bgMusic.play();
+      musicBtn.textContent = '🔊';
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Auto play di beberapa browser perlu trigger interaksi user
+  document.addEventListener('DOMContentLoaded', () => {
+    bgMusic.play().catch(() => {
+      // Autoplay mungkin ditolak, user harus klik
+      musicBtn.textContent = '🔇';
+      isPlaying = false;
+    });
+  });
+</script>
+<script>
+  function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("Teks berhasil disalin: " + text);
+  }
+
+  function copyTextRaw(text) {
+    navigator.clipboard.writeText(text);
+    alert("Teks berhasil disalin: " + text);
+  }
+</script>
+<!--ucapan-->
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDx367W6CAP-sVyrRh1Vq7iY6CahLm7yos",
+  authDomain: "komen-tema-1.firebaseapp.com",
+  databaseURL: "https://komen-tema-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "komen-tema-1",
+  storageBucket: "komen-tema-1.firebasestorage.app",
+  messagingSenderId: "376132005682",
+  appId: "1:376132005682:web:822863ba0e14166270312b",
+  measurementId: "G-T8X8DZW8XZ"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+</script>
+<script>
+  const form = document.getElementById("form-ucapan");
+  const daftarUcapan = document.getElementById("daftar-ucapan");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value;
+    const isi = document.getElementById("isi").value;
+    const status = document.getElementById("status").value;
+
+    const data = {
+      nama,
+      isi,
+      status,
+      waktu: new Date().toLocaleString()
+    };
+
+    // Push ke Firebase
+    database.ref("ucapan").push(data, function (error) {
+      if (error) {
+        alert("Gagal mengirim ucapan.");
+      } else {
+        form.reset();
+      }
+    });
+  });
+
+  // Ambil dan tampilkan ucapan dari Firebase secara realtime
+  database.ref("ucapan").on("child_added", function (snapshot) {
+    const item = snapshot.val();
+
+    const div = document.createElement("div");
+    div.classList.add("ucapan-item");
+    div.innerHTML = `
+      <strong>${item.nama}</strong> (${item.status})<br/>
+      <small>${item.waktu}</small><br/>
+      <p>${item.isi}</p>
+    `;
+
+    daftarUcapan.prepend(div);
+  });
+</script>
+
+<!--ucapan-->
+
+</body>
+</html>

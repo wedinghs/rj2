@@ -1,0 +1,155 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .cover {
+      position: relative;
+      height: 100vh;
+      background: url('img/berdua.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    .foto-mempelai {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      border: 4px solid #FFD700;
+      margin-bottom: 20px;
+    }
+
+    .judul {
+      font-size: 3rem;
+      color: #FFD700;
+      margin: 10px 0;
+      letter-spacing: 2px;
+      font-family: 'Carattere', cursive;
+    }
+
+    .nama-mempelai {
+      font-size: 3rem;
+      font-weight: normal;
+      color: #fff;
+      margin-bottom: 10px;
+      font-family: 'Carattere', cursive;
+    }
+
+    .kepada {
+      font-size: 1.1rem;
+      margin: 20px 0 5px;
+      color: #FFD700;
+    }
+
+    .nama-tamu {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .btn-buka {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-buka:hover {
+      background-color: #e0be00;
+    }
+
+    .catatan {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .foto-mempelai {
+        width: 80%;
+      }
+
+      .nama-mempelai {
+        font-size: 3rem;
+      }
+
+      .judul {
+        font-size: 2rem;
+      }
+
+      .nama-tamu {
+        font-size: 1rem;
+        padding: 8px 15px;
+      }
+    }
+
+    /*salju*/
+.snowflake {
+  position: fixed;
+  top: -10px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall linear forwards;
+}
+
+.snowflake span {
+  display: inline-block;
+  color: #fff;
+  animation: spin linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
